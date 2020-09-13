@@ -10,8 +10,7 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-
-            Console.ReadLine();
+            
         }
         //public int GetHighestValue(List<MyTypes> list)
         //{
@@ -30,6 +29,26 @@ namespace Task2
             }
             var max = numSet.Max();
             Console.WriteLine($"The Largest Element in List is: {max}");
+        }
+        public string reversedString(string Set)
+        {
+            List<string> stringSet = new List<string>();
+            Console.WriteLine("Enter No of Elements");
+            int sizeOfList = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < sizeOfList; i++)
+            {
+                Console.WriteLine("Please enter a text");
+                stringSet.Add(Console.ReadLine());
+            }
+            stringSet.Reverse();
+            Console.WriteLine();
+            foreach (string dinosaur in stringSet)
+            {
+                Console.WriteLine(dinosaur);
+            }
+
+            Console.ReadLine();
+            return Set;
         }
     }
 }
