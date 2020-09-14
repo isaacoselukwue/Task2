@@ -10,7 +10,9 @@ namespace Task2
     {
         static void Main(string[] args)
         {
+ 
             
+            Console.ReadLine();
         }
         //public int GetHighestValue(List<MyTypes> list)
         //{
@@ -49,6 +51,22 @@ namespace Task2
 
             Console.ReadLine();
             return Set;
+        }
+        public string inplace(string sentence) {
+            //checks whether an element occurs in a list.
+            List<string> stringSet = new List<string> { "Isaac", "Lucho", "Navaret" };
+            Console.WriteLine("Enter A String: ");
+            string doesExist = Console.ReadLine();
+
+            if (stringSet.Contains(doesExist) == true)
+            {
+                Console.WriteLine($"The string {doesExist} is in the List: ");
+            }
+            else
+            {
+                Console.WriteLine($"The String {doesExist} is not in the list");
+            }
+            return sentence;
         }
     }
 }
