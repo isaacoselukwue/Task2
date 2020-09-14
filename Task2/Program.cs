@@ -11,7 +11,16 @@ namespace Task2
         static void Main(string[] args)
         {
 
-
+            List<int> numSet = new List<int>();
+            Console.WriteLine("Enter No of Elements");
+            int sizeOfList = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < sizeOfList; i++)
+            {
+                Console.WriteLine("Please enter a number");
+                numSet.Add(Convert.ToInt32(Console.ReadLine()));
+            }
+            int totalSum = numSet.Sum();
+            Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
             Console.ReadLine();
         }
         //public int GetHighestValue(List<MyTypes> list)
@@ -88,6 +97,20 @@ namespace Task2
             //Console.WriteLine(" The bla is",odds);
             return oddNum;
         }
-
+        public int calculateSum(int numSum)
+        {
+            //sum of elements in a list
+            List<int> numSet = new List<int>();
+            Console.WriteLine("Enter No of Elements");
+            int sizeOfList = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < sizeOfList; i++)
+            {
+                Console.WriteLine("Please enter a number");
+                numSet.Add(Convert.ToInt32(Console.ReadLine()));
+            }
+            int totalSum = numSet.Sum();
+            Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
+            return numSum;
+        }
     }
 }
