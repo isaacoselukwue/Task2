@@ -10,8 +10,8 @@ namespace Task2
     {
         static void Main(string[] args)
         {
- 
-            
+
+
             Console.ReadLine();
         }
         //public int GetHighestValue(List<MyTypes> list)
@@ -68,5 +68,26 @@ namespace Task2
             }
             return sentence;
         }
+        public string oddPosition(string oddNum)
+        {
+            //calculates the odd numbers in a list
+            List<string> stringSet = new List<string>();
+            Console.WriteLine("Enter No of Elements");
+            int sizeOfList = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < sizeOfList; i++)
+            {
+                Console.WriteLine("Please enter a text");
+                stringSet.Add(Console.ReadLine());
+            }
+            var odds = stringSet.Where((p, index) => index % 2 == 0);
+            Console.WriteLine("The numbers in odd position in the list are: ");
+            foreach (string item in odds)
+            {
+                Console.WriteLine($"{item} ");
+            }
+            //Console.WriteLine(" The bla is",odds);
+            return oddNum;
+        }
+
     }
 }
