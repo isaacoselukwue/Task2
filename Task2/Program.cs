@@ -10,7 +10,7 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            
+
             Console.ReadLine();
         }
         //public int GetHighestValue(List<MyTypes> list)
@@ -119,6 +119,23 @@ namespace Task2
             }
 
             return input;
+        }
+        public int calculateSumWhileLoop(int numSum)
+        {
+            //sum of elements in a list using while loop
+            List<int> numSet = new List<int>();
+            Console.WriteLine("Enter No of Elements");
+            int sizeOfList = Convert.ToInt32(Console.ReadLine());
+            int elements = 0;
+            while (elements < sizeOfList)
+            {
+                Console.WriteLine("Please enter a number");
+                numSet.Add(Convert.ToInt32(Console.ReadLine()));
+                elements++;
+            }
+            int totalSum = numSet.Sum();
+            Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
+            return numSum;
         }
     }
 }
