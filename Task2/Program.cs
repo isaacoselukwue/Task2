@@ -137,5 +137,22 @@ namespace Task2
             Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
             return numSum;
         }
+        public int calculateSumDoWhileLoop(int numSum)
+        {
+            //sum of elements in a list using while loop
+            List<int> numSet = new List<int>();
+            Console.WriteLine("Enter No of Elements");
+            int sizeOfList = Convert.ToInt32(Console.ReadLine());
+            int elements = 0;
+            do
+            {
+                Console.WriteLine("Please enter a number");
+                numSet.Add(Convert.ToInt32(Console.ReadLine()));
+                elements++;
+            } while (elements < sizeOfList);
+            int totalSum = numSet.Sum();
+            Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
+            return numSum;
+        }
     }
 }
