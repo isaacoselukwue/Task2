@@ -10,65 +10,97 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            //Console.Write("Guess a number between 1 and 10: ");
-            //int guessed = 0;
-            //Random myRandom = new Random();
-            //int num = myRandom.Next(1, 10);
-            //while (guessed != num)
-            //{
-            //    Console.WriteLine("Guess the number: ");
-            //    int input = Convert.ToInt32(Console.ReadLine());
-            //    if (num < input)
-            //    {
-            //        Console.WriteLine("too high");
-            //    }
-            //    else if (num > input)
-            //    {
-            //        Console.WriteLine("too low");
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("correct");
-            //        break;
-            //    }
-            //}
+            try
+            {
 
-            //int number = 0;
-            //Console.WriteLine("Enter a number");
-            //try
-            //{
-            //    number = Convert.ToInt32(Console.ReadLine());
-            //    if (number == 0)
-            //    {
-            //        Console.WriteLine("Zero");
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine($"Num is: {numberToWord(number)}");
-            //    }
-
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine("Enter an integer: ");
-            //    throw;
-            //}
-            string input = Console.ReadLine();
+ 
+            Task3 secondExercise = new Task3();
+            Task4 thirdExercise = new Task4();
+            Console.WriteLine("Hello!!!");
+            Console.WriteLine("Welcome to my trial lessons");
+            Console.WriteLine("For a function that returns the largest element in a list, enter [1]");
+            Console.WriteLine("For a function that returns a list of sorted strings, enter [2]");
+            Console.WriteLine("For a function that checks whether an element occurs in a list, enter [3]: ");
+            Console.WriteLine("For a function returns the elements in odd positions in a list, enter [4]");
+            Console.WriteLine("For a function returns the sum of elements in a list using a for loop, enter [5]");
+            Console.WriteLine("For a function checks if a string is a palindrome, enter [6]");
+            Console.WriteLine("For a function returns the sum of elements in a list using a while loop, enter [7]");
+            Console.WriteLine("For a function returns the sum of elements in a list using a do while loop, enter [8]");
+            Console.WriteLine("For a class that generates a random no between 1 and 10, enter [9] ");
+            Console.WriteLine("This Class converts digits(int) to word format(string), enter [10]");
+            //string input = Console.ReadLine();
             bool run = true;
             while (run)
             {
-                if (input == "1")
+                    string input = Console.ReadLine();
+                    if (input == "1")
                 {
+                    Console.WriteLine("This function returns the maximum value integer in the list: ");
                     maxvalue();
+                    
+                }
+                else if (input == "2")
+                {
+                    Console.WriteLine("This function returns a list of sorted strings: ");
+                    reversedString();
+                }
+                else if (input == "3")
+                {
+                    Console.WriteLine("This function checks whether an element occurs in a list: ");
+                    inplace();
+                }
+                else if (input == "4")
+                {
+                    Console.WriteLine("This function returns the elements in odd positions in a list");
+                    oddPosition();
+                }
+                else if (input == "5")
+                {
+                    Console.WriteLine("This function reurns the sum of elements in a list. Uses a for loop");
+                    calculateSum();
+                }
+                else if (input == "6")
+                {
+                    Console.WriteLine("This function checks if a string is a palindrome");
+                    isPalindrome();
+                }
+                else if (input == "7")
+                {
+                    Console.WriteLine("This function reurns the sum of elements in a list. Uses a while loop");
+                    calculateSumWhileLoop();
+                }
+                else if (input == "8")
+                {
+                    Console.WriteLine("This function reurns the sum of elements in a list. Uses a do while loop");
+                    calculateSumDoWhileLoop();
+                }
+                else if (input == "9")
+                {
+                    Console.WriteLine("This function generates a random no between 1 and 10 ");
+                    secondExercise.randomFuntion();
+                }
+                else if (input == "10")
+                {
+                    Console.WriteLine("This Class converts digits(int) to word format(string)");
+                    thirdExercise.wordConversion();
+                }
+                    else
+                    {
+                        Console.WriteLine("Input unaccounted for");
+                        run = false;
+                    }
+                    break;
                 }
             }
-
+            catch (Exception e)
+            {
+                Console.Beep();
+                Console.WriteLine("!!!Fatal Error!!!");
+                
+            }
             Console.ReadLine();
         }
-        //public int GetHighestValue(List<MyTypes> list)
-        //{
-        //    return list.Count > 0 ? list.Max(t => t.Age) : 0; //could also return -1
-        //}
+
         public static void maxvalue()
         {
             //a function that returns the largest element in a list.
@@ -83,7 +115,7 @@ namespace Task2
             var max = numSet.Max();
             Console.WriteLine($"The Largest Element in List is: {max}");
         }
-        public string reversedString(string Set)
+        public static void reversedString()
         {
             List<string> stringSet = new List<string>();
             Console.WriteLine("Enter No of Elements");
@@ -101,9 +133,8 @@ namespace Task2
             }
 
             Console.ReadLine();
-            return Set;
         }
-        public string inplace(string sentence) {
+        public static void inplace() {
             //checks whether an element occurs in a list.
             List<string> stringSet = new List<string> { "Isaac", "Lucho", "Navaret" };
             Console.WriteLine("Enter A String: ");
@@ -117,9 +148,8 @@ namespace Task2
             {
                 Console.WriteLine($"The String {doesExist} is not in the list");
             }
-            return sentence;
         }
-        public string oddPosition(string oddNum)
+        public static void oddPosition()
         {
             //calculates the odd numbers in a list
             List<string> stringSet = new List<string>();
@@ -137,9 +167,8 @@ namespace Task2
                 Console.WriteLine($"{item} ");
             }
             //Console.WriteLine(" The bla is",odds);
-            return oddNum;
         }
-        public int calculateSum(int numSum)
+        public static void calculateSum()
         {
             //sum of elements in a list
             List<int> numSet = new List<int>();
@@ -152,9 +181,8 @@ namespace Task2
             }
             int totalSum = numSet.Sum();
             Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
-            return numSum;
         }
-        public string isPalindrome(string input)
+        public static void isPalindrome()
         {
             //Method to check if there is a palindrome
             Console.WriteLine("Enter the string to check if its a palindrome");
@@ -169,10 +197,8 @@ namespace Task2
             {
                 Console.WriteLine("No");
             }
-
-            return input;
         }
-        public int calculateSumWhileLoop(int numSum)
+        public static void calculateSumWhileLoop()
         {
             //sum of elements in a list using while loop
             List<int> numSet = new List<int>();
@@ -187,11 +213,10 @@ namespace Task2
             }
             int totalSum = numSet.Sum();
             Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
-            return numSum;
         }
-        public int calculateSumDoWhileLoop(int numSum)
+        public static void calculateSumDoWhileLoop()
         {
-            //sum of elements in a list using while loop
+            //sum of elements in a list using a do while loop
             List<int> numSet = new List<int>();
             Console.WriteLine("Enter No of Elements");
             int sizeOfList = Convert.ToInt32(Console.ReadLine());
@@ -204,61 +229,6 @@ namespace Task2
             } while (elements < sizeOfList);
             int totalSum = numSet.Sum();
             Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
-            return numSum;
-        }
-        public static string numberToWord(int number)
-        {
-            string words = "";
-            List<string> unitList = new List<string> { "zero", "one", "two", "three", "four", "five", "six",
-                      "seven", "eight", "nine", "ten", "eleven", "twelve",
-                      "thirteen", "fourteen", "fifteen", "sixteen", "seventeen",
-                      "eighteen", "nineteen"};
-            List<string> tensList = new List<string> { "zero", "ten", "twenty", "thirty", "forty", "fifty",
-                      "sixty", "seventy", "eighty", "ninety" };
-
-            if (number == 0)
-            {
-                return "zero";
-            }
-
-            if (number < 0)
-            {
-                String numberStr = "" + number; 
-                numberStr = numberStr.Substring(1);
-                return "minus " + numberToWord(Convert.ToInt32(numberStr));
-            }
-            if ((number / 1000000) > 0)
-            {
-                words += numberToWord(number / 1000000) + " million ";
-                number %= 1000000;
-            }
-            if ((number / 1000) > 0)
-            {
-                words += numberToWord(number / 1000) + " thousand ";
-                number %= 1000;
-            }
-            if ((number / 100) > 0)
-            {
-                words += numberToWord(number / 100) + " hundred and ";
-                number %= 100;
-            }
-
-            if (number > 0)
-            {
-                if (number < 20)
-                {
-                    words += unitList[number];
-                }
-                else
-                {
-                    words += tensList[number / 10];
-                    if ((number % 10) > 0)
-                    {
-                        words += "-" + unitList[number % 10];
-                    }
-                }
-            }
-            return words;
         }
     }
 }

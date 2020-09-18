@@ -9,14 +9,14 @@ namespace Task2
     class Task3
     {
         //random no game
-        public string MyProperty(string random) {
+        public void randomFuntion() {
             Console.Write("Guess a number between 1 and 10: ");
             int guessed = 0;
             Random myRandom = new Random();
             int num = myRandom.Next(1, 10);
             while (guessed != num)
             {
-                Console.WriteLine("Guess the number: ");
+                Console.Write("Guess the number: ");
                 int input = Convert.ToInt32(Console.ReadLine());
                 if (num < input)
                 {
@@ -32,12 +32,11 @@ namespace Task2
                     break;
                 }
             }
-            return random;
         }
     }
     class Task4
     {
-        public string wordnos(string num) {
+        public void wordConversion() {
             int number = 0;
             Console.WriteLine("Enter a number");
             try
@@ -58,7 +57,7 @@ namespace Task2
                 Console.WriteLine("Enter an integer: ");
                 throw;
             }
-            return num;
+            
         }
         public string numberToWord(int number) {
             string words = "";
@@ -76,26 +75,20 @@ namespace Task2
             
             if (number < 0)
             {
-                // convert the number to a string
                 String numberStr = "" + number;
-                // remove minus before the number 
-                numberStr = numberStr.Substring(1);
-                // add minus before the number and convert the rest of number 
+                numberStr = numberStr.Substring(1); 
                 return "minus " + numberToWord(Convert.ToInt32(numberStr));
             }
-            // check if number is divisible by 1 million
             if ((number / 1000000) > 0)
             {
                 words += numberToWord(number / 1000000) + " million ";
                 number %= 1000000;
             }
-            // check if number is divisible by 1 thousand
             if ((number / 1000) > 0)
             {
                 words += numberToWord(number / 1000) + " thousand ";
                 number %= 1000;
             }
-            // check if number is divisible by 1 hundred
             if ((number / 100) > 0)
             {
                 words += numberToWord(number / 100) + " hundred and ";
@@ -104,15 +97,12 @@ namespace Task2
 
             if (number > 0)
             {
-                // check if number is within teens
                 if (number < 20)
                 {
-                    // fetch the appropriate value from unit array
                     words += unitList[number];
                 }
                 else
                 {
-                    // fetch the appropriate value from tens array
                     words += tensList[number / 10];
                     if ((number % 10) > 0)
                     {
@@ -121,6 +111,13 @@ namespace Task2
                 }
             }
             return words;
+        }
+    }
+    class Task5
+    {
+        public void textInput()
+        {
+
         }
     }
 }
