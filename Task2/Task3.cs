@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,30 +38,22 @@ namespace Task2
     }
     class Task4
     {
-        public void wordConversion() {
+        public void wordConversion()
+        {
             int number = 0;
             Console.WriteLine("Enter a number");
-            try
-            {
-                number = Convert.ToInt32(Console.ReadLine());
-                if (number == 0)
-                {
-                    Console.WriteLine("Zero");
-                }
-                else
-                {
-                    Console.WriteLine($"Num is: {numberToWord(number)}");
-                }
 
-            }
-            catch (Exception e)
+            number = Convert.ToInt32(Console.ReadLine());
+            if (number == 0)
             {
-                Console.WriteLine("Enter an integer: ");
-                throw;
+                Console.WriteLine("Zero");
             }
-            
+            else
+            {
+                Console.WriteLine($"Num is: {numberToWord(number)}");
+            }
         }
-        public string numberToWord(int number) {
+        private string numberToWord(int number) {
             string words = "";
             List<string> unitList = new List<string> { "zero", "one", "two", "three", "four", "five", "six",
                       "seven", "eight", "nine", "ten", "eleven", "twelve",
@@ -115,8 +109,63 @@ namespace Task2
     }
     class Task5
     {
+        //storing student name to txt
         public void textInput()
         {
+            Console.WriteLine("Enter 1 to wrte to file and 2 to read from file");
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    ReadLine();
+                    break;
+                case "2":
+                    Console.WriteLine("work in progress");
+                    break;
+                default:
+                    break;
+            }
+
+
+            //reading from file
+            // string line1 = GetLine(@"test.txt", 1);
+
+
+        }
+        public string GetLine(string fileName, int line)
+        {
+            using (StreamReader ssr = new StreamReader("student.txt"))
+            //using (var ssr = new StreamReader("test.txt"))
+            {
+                for (int i = 1; i < line; i++)
+                    ssr.ReadLine();
+                return ssr.ReadLine();
+            }
+        }
+        private void ReadLine() {
+            StreamWriter sw = new StreamWriter("C:\\Users\\princ\\Downloads\\student.txt");
+            Console.WriteLine("Student no");
+            int studentNo = Convert.ToInt32(Console.ReadLine());
+            while (studentNo != 0)
+            {
+                sw.WriteLine("Studentname\tStudentID");
+                Console.WriteLine("Enter Students Name: ");
+                string name = Console.ReadLine();
+                Console.WriteLine("Enter students Number: ");
+                string number = Console.ReadLine();
+                var lines = name + " " + number;
+                //System.IO.File.WriteAllText(@"C:\Users\princ\Downloads\student.txt", lines);
+                sw.WriteLine(lines);
+                studentNo--;
+            }
+            //Console.WriteLine("Enter Students Name: ");
+            //string name = Console.ReadLine();
+            //Console.WriteLine("Enter students Number: ");
+            //string number = Console.ReadLine();
+            //var lines = name + " " + number;
+            //System.IO.File.WriteAllText(@"C:\Users\princ\Downloads\student.txt", lines);
+            //sw.WriteLine(lines);
+            sw.Close();
 
         }
     }
