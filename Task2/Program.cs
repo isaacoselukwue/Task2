@@ -24,7 +24,7 @@ namespace Task2
                 Console.WriteLine("Hello!!!");
                 Console.WriteLine("Welcome to my trial lessons");
                 Console.WriteLine("For a function that returns the largest element in a list, enter [1]");
-                Console.WriteLine("For a function that returns a list of sorted strings, enter [2]");
+                Console.WriteLine("For a function that reverses a list of strings, enter [2]");
                 Console.WriteLine("For a function that checks whether an element occurs in a list, enter [3]: ");
                 Console.WriteLine("For a function returns the elements in odd positions in a list, enter [4]");
                 Console.WriteLine("For a function returns the sum of elements in a list using a for loop, enter [5]");
@@ -47,7 +47,7 @@ namespace Task2
                     }
                     else if (input == "2")
                     {
-                        Console.WriteLine("This function returns a list of sorted strings: ");
+                        Console.WriteLine("This function reverses a list strings: ");
                         reversedString();
                     }
                     else if (input == "3")
@@ -124,8 +124,19 @@ namespace Task2
                 Console.Write("Please enter a number: ");
                 numSet.Add(Convert.ToInt32(Console.ReadLine()));
             }
-            var max = numSet.Max();
+            //for list.size 
+            int max = 0;
+            foreach (int element in numSet)
+            {
+                if (max < element)
+                {
+                    max = element;
+                }
+            }
             Console.WriteLine($"The Largest Element in List is: {max}");
+
+            //var max = numSet.Max();
+            //Console.WriteLine($"The Largest Element in List is: {max}");
         }
         public static void reversedString()
         {
@@ -137,14 +148,24 @@ namespace Task2
                 Console.Write("Please enter a text - ");
                 stringSet.Add(Console.ReadLine());
             }
-            stringSet.Reverse();
-            Console.WriteLine();
-            foreach (string e in stringSet)
+            int n = stringSet.Count;
+            for (int i = 0; i < n/2; i++)
             {
-                Console.WriteLine(e);
+                string newList = stringSet[i];
+                stringSet[i] = stringSet[n - i - 1];
+                stringSet[n - i - 1] = newList;
             }
-
-            Console.ReadLine();
+            foreach (string item in stringSet)
+            {
+                Console.WriteLine(item);
+            }
+            //Console.WriteLine(String.Join(stringSet));
+            //numberStr = numberStr.Substring(1);
+            //stringSet.Reverse();
+            //foreach (string e in stringSet)
+            //{
+            //    Console.WriteLine(e);
+            //}
         }
         public static void inplace() {
             //checks whether an element occurs in a list.
@@ -152,32 +173,65 @@ namespace Task2
             Console.WriteLine("Enter A String: ");
             string doesExist = Console.ReadLine();
 
-            if (stringSet.Contains(doesExist) == true)
+            //if (stringSet.Contains(doesExist) == true)
+            //{
+            //    Console.WriteLine($"The string {doesExist} is in the List: ");
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"The String {doesExist} is not in the list");
+            //}
+            
+            foreach (string item in stringSet)
             {
-                Console.WriteLine($"The string {doesExist} is in the List: ");
-            }
-            else
-            {
-                Console.WriteLine($"The String {doesExist} is not in the list");
+                if (item == doesExist)
+                {
+                    Console.WriteLine($"The string {doesExist} is in the List: ");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine($"The String {doesExist} is not in the list");
+                }
             }
         }
         public static void oddPosition()
         {
             //calculates the odd numbers in a list
             List<string> stringSet = new List<string>();
-            Console.Write("Enter No of Elements: ");
-            int sizeOfList = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < sizeOfList; i++)
+            //Console.Write("Enter No of Elements: ");
+            //int sizeOfList = Convert.ToInt32(Console.ReadLine());
+            //for (int i = 0; i < sizeOfList; i++)
+            //{
+            //    Console.Write("Please enter a text: ");
+            //    stringSet.Add(Console.ReadLine());
+            //}
+            while (true)
             {
-                Console.Write("Please enter a text: ");
-                stringSet.Add(Console.ReadLine());
+                if (stringSet.Contains("stop"))
+                {
+                    stringSet.Remove("stop");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Please enter a text(Enter -stop- when done): ");
+                    stringSet.Add(Console.ReadLine());
+                }
             }
-            var odds = stringSet.Where((p, index) => index % 2 == 0);
-            Console.WriteLine("The numbers in odd position in the list are: ");
-            foreach (string item in odds)
+            List<string> evens = new List<string>();
+            int n = stringSet.Count;
+            for (int i = 0; i < n; i+=2)
             {
-                Console.WriteLine($"{item} ");
+                Console.WriteLine(stringSet[i]);               
             }
+            
+            //var odds = stringSet.Where((p, index) => index % 2 == 0);
+            //Console.WriteLine("The numbers in odd position in the list are: ");
+            //foreach (string item in evens)
+            //{
+            //    Console.WriteLine($"{item} ");
+            //}
             //Console.WriteLine(" The bla is",odds);
         }
         public static void calculateSum()
@@ -191,8 +245,14 @@ namespace Task2
                 Console.Write("Please enter a number: ");
                 numSet.Add(Convert.ToInt32(Console.ReadLine()));
             }
-            int totalSum = numSet.Sum();
-            Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
+            //int totalSum = numSet.Sum();
+            int sum = 0;
+            foreach (int element in numSet)
+            {
+                sum += element;
+            }
+            Console.WriteLine($"The sum of the numbers in the List is: {sum}");
+            //Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
         }
         public static void isPalindrome()
         {
@@ -223,8 +283,14 @@ namespace Task2
                 numSet.Add(Convert.ToInt32(Console.ReadLine()));
                 elements++;
             }
-            int totalSum = numSet.Sum();
-            Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
+            //int totalSum = numSet.Sum();
+            //Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
+            int sum = 0;
+            foreach (int element in numSet)
+            {
+                sum += element;
+            }
+            Console.WriteLine($"The sum of the numbers in the List is: {sum}");
         }
         private static void CalculateSumDoWhileLoop()
         {
@@ -239,8 +305,14 @@ namespace Task2
                 numSet.Add(Convert.ToInt32(Console.ReadLine()));
                 elements++;
             } while (elements < sizeOfList);
-            int totalSum = numSet.Sum();
-            Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
+            //int totalSum = numSet.Sum();
+            //Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
+            int sum = 0;
+            foreach (int element in numSet)
+            {
+                sum += element;
+            }
+            Console.WriteLine($"The sum of the numbers in the List is: {sum}");
         }
     }
 }

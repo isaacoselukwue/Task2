@@ -120,22 +120,20 @@ namespace Task2
                     ReadLine();
                     break;
                 case "2":
-                    Console.WriteLine("work in progress");
+                    //string line1 = GetLine(@"C:\\Users\\princ\\Downloads\\student.txt", 2);
+                    //Console.WriteLine(line1);//line by line
+                    string text = File.ReadAllText(@"C:\\Users\\princ\\Downloads\\student.txt");
+
+                    // Display the file contents to the console. Variable text is a string.
+                    Console.WriteLine("Contents of WriteText.txt = {0}", text);
                     break;
                 default:
                     break;
             }
-
-
-            //reading from file
-            // string line1 = GetLine(@"test.txt", 1);
-
-
         }
         public string GetLine(string fileName, int line)
         {
-            using (StreamReader ssr = new StreamReader("student.txt"))
-            //using (var ssr = new StreamReader("test.txt"))
+            using (StreamReader ssr = new StreamReader(@"C:\\Users\\princ\\Downloads\\student.txt"))
             {
                 for (int i = 1; i < line; i++)
                     ssr.ReadLine();
@@ -143,17 +141,17 @@ namespace Task2
             }
         }
         private void ReadLine() {
-            StreamWriter sw = new StreamWriter("C:\\Users\\princ\\Downloads\\student.txt");
+            StreamWriter sw = new StreamWriter("C:\\Users\\princ\\Downloads\\student.txt", true);
             Console.WriteLine("Student no");
             int studentNo = Convert.ToInt32(Console.ReadLine());
+            sw.WriteLine("Studentname\tStudentID");
             while (studentNo != 0)
             {
-                sw.WriteLine("Studentname\tStudentID");
                 Console.WriteLine("Enter Students Name: ");
                 string name = Console.ReadLine();
                 Console.WriteLine("Enter students Number: ");
                 string number = Console.ReadLine();
-                var lines = name + " " + number;
+                var lines = name + "\t" + number;
                 //System.IO.File.WriteAllText(@"C:\Users\princ\Downloads\student.txt", lines);
                 sw.WriteLine(lines);
                 studentNo--;
@@ -169,4 +167,5 @@ namespace Task2
 
         }
     }
+
 }
