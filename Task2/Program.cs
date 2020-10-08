@@ -125,16 +125,18 @@ namespace Task2
                 numSet.Add(Convert.ToInt32(Console.ReadLine()));
             }
             //for list.size 
-            int max = 0;
-            foreach (int element in numSet)
-            {
-                if (max < element)
-                {
-                    max = element;
-                }
-            }
+            //int max = 0;
+            //foreach (int element in numSet)
+            //{
+            //    if (max < element)
+            //    {
+            //        max = element;
+            //    }
+            //}
+            //Console.WriteLine($"The Largest Element in List is: {max}");
+            HelperMethod MaxSize = new HelperMethod();
+            int max = MaxSize.MaxSize(numSet);
             Console.WriteLine($"The Largest Element in List is: {max}");
-
             //var max = numSet.Max();
             //Console.WriteLine($"The Largest Element in List is: {max}");
         }
@@ -246,11 +248,13 @@ namespace Task2
                 numSet.Add(Convert.ToInt32(Console.ReadLine()));
             }
             //int totalSum = numSet.Sum();
-            int sum = 0;
-            foreach (int element in numSet)
-            {
-                sum += element;
-            }
+            //int sum = 0;
+            //foreach (int element in numSet)
+            //{
+            //    sum += element;
+            //}
+            HelperMethod Sum = new HelperMethod();
+            int sum = Sum.Sum(numSet);
             Console.WriteLine($"The sum of the numbers in the List is: {sum}");
             //Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
         }
@@ -285,11 +289,13 @@ namespace Task2
             }
             //int totalSum = numSet.Sum();
             //Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
-            int sum = 0;
-            foreach (int element in numSet)
-            {
-                sum += element;
-            }
+            //int sum = 0;
+            //foreach (int element in numSet)
+            //{
+            //    sum += element;
+            //}
+            HelperMethod Sum = new HelperMethod();
+            int sum = Sum.Sum(numSet);
             Console.WriteLine($"The sum of the numbers in the List is: {sum}");
         }
         private static void CalculateSumDoWhileLoop()
@@ -307,11 +313,13 @@ namespace Task2
             } while (elements < sizeOfList);
             //int totalSum = numSet.Sum();
             //Console.WriteLine($"The sum of the numbers in the List is: {totalSum}");
-            int sum = 0;
-            foreach (int element in numSet)
-            {
-                sum += element;
-            }
+            //int sum = 0;
+            //foreach (int element in numSet)
+            //{
+            //    sum += element;
+            //}
+            HelperMethod Sum = new HelperMethod();
+            int sum = Sum.Sum(numSet);
             Console.WriteLine($"The sum of the numbers in the List is: {sum}");
         }
     }

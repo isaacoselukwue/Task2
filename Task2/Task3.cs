@@ -120,38 +120,65 @@ namespace Task2
                     ReadLine();
                     break;
                 case "2":
-                    //string line1 = GetLine(@"C:\\Users\\princ\\Downloads\\student.txt", 2);
-                    //Console.WriteLine(line1);//line by line
-                    string text = File.ReadAllText(@"C:\\Users\\princ\\Downloads\\student.txt");
+                    Console.WriteLine("Enter the mat no: ");
+                    string matricno = Console.ReadLine();
+                    string line1 = GetLine(@"C:\\Users\\princ\\Downloads\\student.txt", matricno);
+                    Console.WriteLine(line1);//line by line
+                    //string text = File.ReadAllText(@"C:\\Users\\princ\\Downloads\\student.txt");
 
-                    // Display the file contents to the console. Variable text is a string.
-                    Console.WriteLine("Contents of WriteText.txt = {0}", text);
+                    //// Display the file contents to the console. Variable text is a string.
+                    //Console.WriteLine("Contents of WriteText.txt = {0}", text);
                     break;
                 default:
                     break;
             }
         }
-        public string GetLine(string fileName, int line)
+        public string GetLine(string fileName, string searchingKey)
         {
-            using (StreamReader ssr = new StreamReader(@"C:\\Users\\princ\\Downloads\\student.txt"))
             {
-                for (int i = 1; i < line; i++)
-                    ssr.ReadLine();
-                return ssr.ReadLine();
+                //for (int i = 1; i < line; i++)
+                //    ssr.ReadLine();
+                string line = null;
+                using (StreamReader ssr = new StreamReader(@"C:\\Users\\princ\\Downloads\\student.txt"))
+                {
+                    while ((line = ssr.ReadLine()) != null)
+                    {
+                        if (line.Contains(searchingKey))
+                        {
+                            return line;
+                        }
+ 
+                    }
+                    return "";
+                    //foreach (int item in ssr.ReadToEnd())
+                    //{
+                    //    if (item.CompareTo(Convert.ToInt32(line)) == 0)
+                    //    {
+                    //        return ssr.ReadLine();
+                    //    }
+                    //    else
+                    //    {
+                    //        return "error";
+                    //    }
+                    //}
+                    //return "done";
+                }
             }
         }
+                   
+        
         private void ReadLine() {
             StreamWriter sw = new StreamWriter("C:\\Users\\princ\\Downloads\\student.txt", true);
-            Console.WriteLine("Student no");
+            Console.WriteLine("Number of Students you want to register: ");
             int studentNo = Convert.ToInt32(Console.ReadLine());
-            sw.WriteLine("Studentname\tStudentID");
+            sw.WriteLine("StudentID\tStudentName");
             while (studentNo != 0)
             {
-                Console.WriteLine("Enter Students Name: ");
+                Console.WriteLine("Enter Students Number: ");
                 string name = Console.ReadLine();
-                Console.WriteLine("Enter students Number: ");
+                Console.WriteLine("Enter students Name: ");
                 string number = Console.ReadLine();
-                var lines = name + "\t" + number;
+                var lines = number + "\t" + name;
                 //System.IO.File.WriteAllText(@"C:\Users\princ\Downloads\student.txt", lines);
                 sw.WriteLine(lines);
                 studentNo--;
@@ -165,6 +192,67 @@ namespace Task2
             //sw.WriteLine(lines);
             sw.Close();
 
+        }
+    }
+    class HelperMethod
+    {
+        public int MaxSize(List<int> stringSet) {
+            int max = 0;
+            foreach (int element in stringSet)
+            {
+                if (max < element)
+                {
+                    max = element;
+                }
+            }
+            
+            return max;
+        }
+        public int Sum(List<int> stringSet)
+        {
+            int sum = 0;
+            foreach (int element in stringSet)
+            {
+                sum += element;
+            }
+            return sum;
+        }
+    }
+
+    public class StudentDetails
+    {
+        public string Name { get; set; }
+        public int MatNo { get; set; }
+        public StudentDetails(string name, int matNo)
+        {
+            Name = name;
+            MatNo = matNo;
+        }
+        // Other properties, methods, events...
+    }
+
+    class UniversityList
+    {
+        static void Main()
+        {
+            StreamWriter sw = new StreamWriter("C:\\Users\\princ\\Downloads\\student.txt", true);
+            Console.WriteLine("Number of Students you want to register: ");
+            int studentNo = Convert.ToInt32(Console.ReadLine());
+            sw.WriteLine("StudentID\tStudentName");
+            while (studentNo != 0)
+            {
+
+                Console.WriteLine("Enter Students Number: ");
+                string name = Console.ReadLine();
+                Console.WriteLine("Enter students Name: ");
+                string number = Console.ReadLine();
+                StudentDetails person1 = new StudentDetails(name, Convert.ToInt32(number));
+                //var lines = number + "\t" + name;
+                //System.IO.File.WriteAllText(@"C:\Users\princ\Downloads\student.txt", lines);
+                sw.WriteLine(person1);
+                studentNo--;
+            }
+            
         }
     }
 
