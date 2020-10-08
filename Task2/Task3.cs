@@ -120,14 +120,7 @@ namespace Task2
                     ReadLine();
                     break;
                 case "2":
-                    Console.WriteLine("Enter the mat no: ");
-                    string matricno = Console.ReadLine();
-                    string line1 = GetLine(@"C:\\Users\\princ\\Downloads\\student.txt", matricno);
-                    Console.WriteLine(line1);//line by line
-                    //string text = File.ReadAllText(@"C:\\Users\\princ\\Downloads\\student.txt");
-
-                    //// Display the file contents to the console. Variable text is a string.
-                    //Console.WriteLine("Contents of WriteText.txt = {0}", text);
+                    PrintOut();
                     break;
                 default:
                     break;
@@ -146,6 +139,13 @@ namespace Task2
                         if (line.Contains(searchingKey))
                         {
                             return line;
+                        }
+                        else if (line.Contains(searchingKey) == true)
+                        {
+                            Console.WriteLine("impossible");
+                            break;
+                            //return "Sorry student profile not found";
+                            
                         }
  
                     }
@@ -193,6 +193,17 @@ namespace Task2
             sw.Close();
 
         }
+        private void PrintOut()
+        {
+            Console.Write("Enter the mat no: ");
+            string matricno = Console.ReadLine();
+            string line1 = GetLine(@"C:\\Users\\princ\\Downloads\\student.txt", matricno);
+            Console.WriteLine(line1);//line by line
+                                     //string text = File.ReadAllText(@"C:\\Users\\princ\\Downloads\\student.txt");
+
+            //// Display the file contents to the console. Variable text is a string.
+            //Console.WriteLine("Contents of WriteText.txt = {0}", text);
+        }
     }
     class HelperMethod
     {
@@ -233,7 +244,7 @@ namespace Task2
 
     class UniversityList
     {
-        static void Main()
+        private void NewMain()
         {
             StreamWriter sw = new StreamWriter("C:\\Users\\princ\\Downloads\\student.txt", true);
             Console.WriteLine("Number of Students you want to register: ");

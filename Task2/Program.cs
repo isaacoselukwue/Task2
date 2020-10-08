@@ -12,12 +12,8 @@ namespace Task2
         static void Main(string[] args)
         {
 
-
-
             try
             {
-
-
                 Task3 secondExercise = new Task3();
                 Task4 thirdExercise = new Task4();
                 Task5 fourthExercise = new Task5();
@@ -35,8 +31,7 @@ namespace Task2
                 Console.WriteLine("For a class that converts digits(int) to word format(string), enter [10]");
                 Console.WriteLine("For a Class that stores and retrieves names from a file, enter [11]");
                 //string input = Console.ReadLine();
-                bool run = true;
-                while (run)
+                while (true)
                 {
                     string input = Console.ReadLine();
                     if (input == "1")
@@ -95,12 +90,17 @@ namespace Task2
                         Console.WriteLine("This Class stores and retrieves names from a file");
                         fourthExercise.textInput();
                     }
+                    else if (input == "stop" || input == "0000")
+                    {
+                        break;
+                    }
                     else
                     {
                         Console.WriteLine("Input unaccounted for");
                         //run = false;
                     }
-                    break;
+                    //break;
+                    Console.WriteLine(@"Input a new number to call that method [Between 1 - 11] or enter 'stop' or '0000' to end program: ");
                 }
             }
             catch (Exception e)
@@ -109,7 +109,7 @@ namespace Task2
                 Console.WriteLine("!!!Fatal Error!!! " + e.Message);
 
             }
-
+            Console.WriteLine("!!!Hit Enter Key To End!!!");
             Console.ReadLine();
         }
 
